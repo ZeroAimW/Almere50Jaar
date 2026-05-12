@@ -22,7 +22,9 @@ const initialEventsData: Record<string, TimelineEvent[]> = {
       date: '1976',
       title: 'Eerste Paal Geslagen',
       description: 'De eerste paal voor Almere Haven wordt geslagen. Het begin van een nieuw stad.',
-      color: 'text-teal-500',
+      color: 'text-orange-500',
+      category: 'Cultuur',
+      categoryIcon: '🎭',
       imageUrl: 'https://images.unsplash.com/photo-1534661305882-578c802eabc1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxOZXRoZXJsYW5kcyUyMGhhcmJvciUyMGJvYXRzJTIwd2F0ZXJ8ZW58MXx8fHwxNzc0MzU2ODEzfDA&ixlib=rb-4.1.0&q=80&w=1080',
     },
     {
@@ -30,7 +32,9 @@ const initialEventsData: Record<string, TimelineEvent[]> = {
       date: '1984',
       title: 'Haven Officieel Geopend',
       description: 'De jachthaven van Almere Haven wordt officieel geopend voor publiek.',
-      color: 'text-blue-600',
+      color: 'text-orange-600',
+      category: 'Sport',
+      categoryIcon: '⚽',
     },
   ],
   'Almere Stad': [
@@ -39,7 +43,9 @@ const initialEventsData: Record<string, TimelineEvent[]> = {
       date: '1980',
       title: 'Ontwikkeling Start',
       description: 'Begin van de ontwikkeling van het stadscentrum van Almere.',
-      color: 'text-purple-600',
+      color: 'text-amber-600',
+      category: 'Kunst',
+      categoryIcon: '🎨',
       imageUrl: 'https://images.unsplash.com/photo-1664993305337-582a5d02ab38?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBhcmNoaXRlY3R1cmUlMjBOZXRoZXJsYW5kc3xlbnwxfHx8fDE3NzQzNTY4MTR8MA&ixlib=rb-4.1.0&q=80&w=1080',
     },
   ],
@@ -49,7 +55,9 @@ const initialEventsData: Record<string, TimelineEvent[]> = {
       date: '1987',
       title: 'Eerste Woning',
       description: 'De eerste woning in Almere Buiten wordt opgeleverd.',
-      color: 'text-lime-500',
+      color: 'text-orange-500',
+      category: 'Cultuur',
+      categoryIcon: '🎭',
       imageUrl: 'https://images.unsplash.com/photo-1753468647330-0d069e1ba9f9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxEdXRjaCUyMGNpdHklMjBwYXJrJTIwbmF0dXJlfGVufDF8fHx8MTc3NDM1NjgxNHww&ixlib=rb-4.1.0&q=80&w=1080',
     },
   ],
@@ -60,6 +68,8 @@ const initialEventsData: Record<string, TimelineEvent[]> = {
       title: 'Plannen Gepresenteerd',
       description: 'De plannen voor de nieuwe wijk Almere Hout worden gepresenteerd.',
       color: 'text-orange-500',
+      category: 'Kunst',
+      categoryIcon: '🎨',
     },
   ],
   'Almere Poort': [
@@ -68,7 +78,9 @@ const initialEventsData: Record<string, TimelineEvent[]> = {
       date: '2001',
       title: 'Start Bouw',
       description: 'Begin van de bouw van Almere Poort, de nieuwste wijk van Almere.',
-      color: 'text-pink-500',
+      color: 'text-orange-600',
+      category: 'Sport',
+      categoryIcon: '⚽',
     },
   ],
   'Almere Pampus': [
@@ -77,7 +89,9 @@ const initialEventsData: Record<string, TimelineEvent[]> = {
       date: '2020',
       title: 'Toekomstplannen',
       description: 'Presentatie van de toekomstvisie voor Almere Pampus.',
-      color: 'text-purple-500',
+      color: 'text-amber-600',
+      category: 'Cultuur',
+      categoryIcon: '🎭',
     },
   ],
 };
@@ -144,45 +158,60 @@ const handleModalClose = () => {
 </script>
 
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800 py-8">
-    <div class="container mx-auto px-4">
-      <!-- Header -->
-      <div class="text-center mb-12">
-        <h1 class="text-5xl font-bold text-gray-800 dark:text-gray-200 tracking-wide mb-2">
+  <div class="min-h-screen bg-[radial-gradient(circle_at_top_left,_rgba(255,152,0,0.18),_transparent_28%),radial-gradient(circle_at_bottom_right,_rgba(249,115,22,0.12),_transparent_30%),linear-gradient(180deg,#fff8f0_0%,#fff0e0_100%)] text-slate-900 relative overflow-hidden py-14">
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute -top-16 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-orange-200 opacity-30 blur-3xl" />
+      <div class="absolute bottom-10 right-10 h-56 w-56 rounded-full bg-slate-200 opacity-30 blur-3xl" />
+    </div>
+
+    <div class="relative container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center mb-12">
+        <span class="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-4 py-2 text-sm font-semibold text-orange-700 shadow-sm mb-4">
+          ⚽ 🎨 🎭 Sport, Kunst en Cultuur in Almere
+        </span>
+        <h1 class="text-6xl sm:text-7xl font-bold tracking-tight text-slate-900 mb-4">
           50 Jaar Almere
         </h1>
-        <div class="w-40 h-1 bg-gradient-to-r from-teal-400 via-lime-400 to-teal-500 mx-auto mb-4" />
-        <p class="text-lg text-gray-600 dark:text-gray-400">
-          Ontdek de geschiedenis van elke wijk
+        <p class="text-base sm:text-xl text-slate-700 max-w-3xl mx-auto leading-relaxed">
+          Een feestelijke tijdlijn met wijkverhalen, klikbare bolletjes en inspirerende beelden. Scroll door de geschiedenis en ontdek wat Almere vormde.
         </p>
+        <div class="mt-6 flex flex-wrap justify-center gap-3 text-sm">
+          <div class="inline-flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 text-slate-700 shadow-sm ring-1 ring-slate-200">
+            <span class="text-orange-500">⚽</span> Sport
+          </div>
+          <div class="inline-flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 text-slate-700 shadow-sm ring-1 ring-slate-200">
+            <span class="text-indigo-500">🎨</span> Kunst
+          </div>
+          <div class="inline-flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 text-slate-700 shadow-sm ring-1 ring-slate-200">
+            <span class="text-amber-500">🎭</span> Cultuur
+          </div>
+        </div>
       </div>
 
-      <!-- Neighborhood Selector -->
       <div class="flex flex-wrap justify-center gap-3 mb-8">
         <button
           v-for="neighborhood in NEIGHBORHOODS"
           :key="neighborhood"
           @click="selectedNeighborhood = neighborhood"
           :class="[
-            'px-6 py-3 rounded-full font-medium transition-all',
+            'px-6 py-3 rounded-full font-medium transition-all shadow-sm',
             selectedNeighborhood === neighborhood
-              ? 'bg-teal-500 text-white shadow-lg scale-105'
-              : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 shadow'
+              ? 'bg-orange-500 text-white shadow-lg scale-105'
+              : 'bg-white text-slate-700 hover:bg-orange-50 border border-slate-200'
           ]"
         >
           {{ neighborhood }}
         </button>
       </div>
 
-      <!-- Admin Controls -->
       <div class="flex justify-center gap-3 mb-8">
         <button
           @click="isEditMode = !isEditMode"
           :class="[
             'flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all shadow',
             isEditMode
-              ? 'bg-red-500 text-white hover:bg-red-600'
-              : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
+              ? 'bg-orange-600 text-white hover:bg-orange-700'
+              : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
           ]"
         >
           <Unlock v-if="isEditMode" class="w-4 h-4" />
@@ -192,14 +221,13 @@ const handleModalClose = () => {
         <button
           v-if="isEditMode"
           @click="isModalOpen = true"
-          class="flex items-center gap-2 px-6 py-3 bg-teal-500 text-white rounded-full font-medium hover:bg-teal-600 transition-all shadow"
+          class="flex items-center gap-2 px-6 py-3 bg-orange-500 text-white rounded-full font-medium hover:bg-orange-600 transition-all shadow"
         >
           <Plus class="w-5 h-5" />
           Nieuw Event Toevoegen
         </button>
       </div>
 
-      <!-- Timeline -->
       <Timeline
         v-if="currentEvents.length > 0"
         :events="currentEvents"
@@ -209,31 +237,29 @@ const handleModalClose = () => {
         @event-click="selectedEvent = $event"
       />
       <div v-else class="text-center py-20">
-        <p class="text-gray-500 dark:text-gray-400 text-lg mb-4">
+        <p class="text-slate-600 text-lg mb-4">
           Nog geen events voor {{ selectedNeighborhood }}
         </p>
         <button
           v-if="isEditMode"
           @click="isModalOpen = true"
-          class="inline-flex items-center gap-2 px-6 py-3 bg-teal-500 text-white rounded-full font-medium hover:bg-teal-600 transition-all shadow"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-orange-500 text-white rounded-full font-medium hover:bg-orange-600 transition-all shadow"
         >
           <Plus class="w-5 h-5" />
           Voeg Eerste Event Toe
         </button>
       </div>
 
-      <!-- Footer Info -->
       <div class="mt-16 text-center">
-        <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">
+        <p class="text-sm text-slate-500 mb-2">
           TiO - Talent in Ontwikkeling
         </p>
-        <p class="text-xs text-gray-400 dark:text-gray-500">
-          Deze tijdlijn wordt gedurende het feestjaar uitgebreid met nieuwe verhalen en foto's
+        <p class="text-xs text-slate-400">
+          Deze tijdlijn wordt gedurende het feestjaar uitgebreid met nieuwe verhalen en foto's.
         </p>
       </div>
     </div>
 
-    <!-- Modals -->
     <EventModal
       :is-open="isModalOpen"
       :neighborhood="selectedNeighborhood"
